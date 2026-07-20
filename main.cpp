@@ -28,30 +28,52 @@ public:
         salary = 0;
     }
 
-    Employee(string n, int a, double s) {
-        if (n != "") {
+void setName(string n){
+     if (n != "") {
             name = n;
         }
         else {
             cout << "name cannot be empty\n";
             name = "Unknown";
         }
+}
 
-        if (a >= 18 && a <= 60) {
+void setAge(int a){
+     if (a >= 18 && a <= 60) {
             age = a;
         }
         else {
             cout << "Invaild age\n";
             age = 18;
         }
+}
 
-        if (s > 0) {
+void setSalary(double s){
+    if (s > 0) {
             salary = s;
         }
         else {
             cout << "Invaild salary\n";
             salary = 0;
         }
+    }
+
+string getName(){
+    return name;
+}
+
+int getAge(){
+    return age;
+}
+
+double getSalary(){
+    return salary;
+}
+
+    Employee(string n, int a, double s) {
+       setName(n);
+        setAge(a);
+        setSalary(s);
     }
 
     void GiveRaise(double amount) {
@@ -63,10 +85,10 @@ public:
         }
     }
 
-    void print() {
-        cout << name << '\n';
-        cout << age << '\n';
-        cout << salary << '\n';
+    void DisplayInfo() {
+        cout <<"Name: "<< name << '\n';
+        cout <<"Age: "<< age << '\n';
+        cout << "salary: "<<salary << '\n';
     }
 };
 
@@ -78,7 +100,7 @@ int main() {
         Employee s2("mena", 18, 2000);
        s2.GiveRaise(100);
        s2.GiveRaise(-20);
-       s1.print();
-       s2.print();
+      s1.DisplayInfo();
+        s2.DisplayInfo();
         return 0;
     }
